@@ -11,6 +11,7 @@ const { Op } = require('sequelize')
 const userController = {
   getUsers: (req, res, next) => {
     return User.findAll({
+      attributes: { exclude: ['password'] }, // 不要回傳密碼
       raw: true,
       nest: true
     })
